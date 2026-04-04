@@ -278,6 +278,10 @@ section { padding: 6rem 6vw; }
 .service-icon {
   font-size: 2rem; margin-bottom: 1.5rem;
 }
+.service-illustration {
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
 .service-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.5rem; font-weight: 400; color: var(--white);
@@ -635,7 +639,9 @@ footer {
 
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">🦷</div>
+      <div class="service-illustration">
+        <img src="artroscopia.png" alt="Artroscopia" style="width:110px;height:110px;object-fit:contain;">
+      </div>
       <div class="service-name">Artroscopia</div>
       <div class="service-desc">Cirugía mínimamente invasiva de articulaciones con recuperación acelerada y mínimo dolor postoperatorio.</div>
       <ul class="service-procedures">
@@ -648,7 +654,9 @@ footer {
     </div>
 
     <div class="service-card">
-      <div class="service-icon">🦴</div>
+      <div class="service-illustration">
+        <img src="protesis.png" alt="Prótesis Articular" style="width:110px;height:110px;object-fit:contain;">
+      </div>
       <div class="service-name">Prótesis Articular</div>
       <div class="service-desc">Reemplazo articular total y parcial con implantes de última generación para recuperar tu calidad de vida.</div>
       <ul class="service-procedures">
@@ -660,7 +668,9 @@ footer {
     </div>
 
     <div class="service-card">
-      <div class="service-icon">🔬</div>
+      <div class="service-illustration">
+        <img src="columna.png" alt="Cirugía de Columna" style="width:110px;height:110px;object-fit:contain;">
+      </div>
       <div class="service-name">Cirugía de Columna</div>
       <div class="service-desc">Tratamiento integral de patologías de columna cervical, torácica y lumbar con enfoque mínimamente invasivo.</div>
       <ul class="service-procedures">
@@ -774,8 +784,14 @@ footer {
     <div class="location-phone">📱 56 1603 1729</div>
     <div class="location-actions">
       <a href="https://wa.me/525616031729" class="btn-primary">WhatsApp</a>
-      <a href="https://maps.google.com/?q=Tlacotalpan+59+Roma+Sur+CDMX" target="_blank" class="btn-outline">Ver en Mapa</a>
+      <a href="https://maps.google.com/?q=Hospital+Angeles+Metropolitano+Tlacotalpan+59+Roma+Sur+CDMX" target="_blank" class="btn-outline">Ver en Mapa</a>
     </div>
+  </div>
+  <div class="map-embed">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.4!2d-99.1676!3d19.4098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff4b3c0a4e3f%3A0x5a7e3e3a3a3a3a3a!2sHospital%20%C3%81ngeles%20Metropolitano!5e0!3m2!1ses!2smx!4v1"
+      width="100%" height="320" style="border:0;border-radius:4px;margin-top:2rem;filter:grayscale(30%) invert(5%);" allowfullscreen loading="lazy">
+    </iframe>
   </div>
 </section>
 
@@ -890,5 +906,28 @@ function moveCarousel(dir) {
   track.style.transform = `translateX(-${carouselIndex * cardW}px)`;
 }
 </script>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/525616031729" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.855L.057 23.203a.75.75 0 0 0 .922.911l5.47-1.437A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.7-.513-5.254-1.407l-.376-.22-3.894 1.023.992-3.793-.242-.389A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
+
+<style>
+.whatsapp-float {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.7);
+}
+</style>
 </body>
 </html>
