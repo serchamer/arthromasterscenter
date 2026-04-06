@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArthroMasters Center | Especialistas en Cirugía Ortopédica · CDMX</title>
+<meta name="description" content="Centro de excelencia en artroscopia, prótesis articular y cirugía de columna. Los mejores especialistas ortopédicos en Hospital Ángeles Metropolitano, CDMX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0a1628;
+  --navy-mid: #112040;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --gold-dim: rgba(201,168,76,0.15);
+  --white: #f5f2ec;
+  --white-dim: rgba(245,242,236,0.7);
+  --white-faint: rgba(245,242,236,0.1);
+  --slate: #8a9ab5;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--navy);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1.2rem 4vw;
+  background: rgba(10,22,40,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--white); text-decoration: none;
+}
+.nav-logo span { color: var(--gold); }
+
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--white-dim); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  background: var(--gold); color: var(--navy) !important;
+  padding: 0.55rem 1.4rem; border-radius: 2px; font-weight: 500;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--gold-light) !important; color: var(--navy) !important; }
+
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.nav-hamburger span { width: 24px; height: 1.5px; background: var(--white); display: block; }
+
+/* ─── HERO ─── */
+#hero {
+  min-height: 100vh;
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
+  background: url('fonde_de_agua.png') center center / cover no-repeat;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(10,22,40,0.92) 0%, rgba(10,22,40,0.75) 50%, rgba(10,22,40,0.5) 100%);
+  pointer-events: none;
+}
+
+.hero-grid-lines {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 10rem 4vw 6rem 6vw;
+  position: relative; z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  border: 1px solid rgba(201,168,76,0.4);
+  padding: 0.4rem 1rem; border-radius: 2px;
+  font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 2rem; width: fit-content;
+}
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300; line-height: 1.05;
+  color: var(--white); margin-bottom: 0.5rem;
+}
+.hero-title em {
+  font-style: italic; color: var(--gold);
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: 0.95rem; color: var(--slate);
+  line-height: 1.7; max-width: 42ch;
+  margin: 1.5rem 0 2.5rem;
+}
+
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--gold); color: var(--navy);
+  padding: 0.9rem 2rem; border-radius: 2px;
+  font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 500; text-decoration: none;
+  transition: all 0.25s; display: inline-block;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+.btn-outline {
+  border: 1px solid rgba(245,242,236,0.3); color: var(--white);
+  padding: 0.9rem 2rem; border-radius: 2px;
+  font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+  font-weight: 400; text-decoration: none;
+  transition: all 0.25s; display: inline-block;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero-stats {
+  display: flex; gap: 3rem; margin-top: 4rem;
+  padding-top: 2rem; border-top: 1px solid rgba(245,242,236,0.1);
+}
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.4rem; font-weight: 300; color: var(--gold);
+  line-height: 1;
+}
+.stat-label { font-size: 0.72rem; color: var(--slate); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
+
+.hero-right {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  padding: 8rem 4vw 4rem;
+}
+
+.hero-photo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px;
+  width: 100%; max-width: 420px;
+}
+
+.photo-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 4px; overflow: hidden;
+  position: relative; aspect-ratio: 3/4;
+  display: flex; flex-direction: column; justify-content: flex-end;
+}
+.photo-card:first-child {
+  grid-column: 1 / -1; aspect-ratio: 16/7;
+}
+
+.photo-placeholder {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--navy-mid) 0%, rgba(201,168,76,0.05) 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
+}
+.photo-placeholder svg { width: 48px; height: 48px; opacity: 0.2; }
+.photo-placeholder span { font-size: 0.65rem; color: var(--slate); letter-spacing: 0.1em; text-transform: uppercase; }
+
+.photo-info {
+  position: relative; z-index: 2;
+  padding: 1rem; background: linear-gradient(transparent, rgba(10,22,40,0.95));
+}
+.photo-info .doc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem; font-weight: 600; color: var(--white);
+}
+.photo-info .doc-spec {
+  font-size: 0.65rem; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 0.15rem;
+}
+
+/* ─── SECTION BASE ─── */
+section { padding: 6rem 6vw; }
+.section-tag {
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300;
+  line-height: 1.15; color: var(--white); margin-bottom: 1rem;
+}
+.section-title em { font-style: italic; color: var(--gold); }
+.section-desc { color: var(--slate); font-size: 0.92rem; line-height: 1.8; max-width: 50ch; }
+
+/* ─── SPECIALISTS ─── */
+#especialistas { background: var(--navy-mid); }
+
+.specialists-header { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem; margin-bottom: 4rem; }
+
+.specialists-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5px; }
+
+.specialist-card {
+  background: var(--navy);
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(201,168,76,0.1);
+  transition: all 0.3s; position: relative; overflow: hidden;
+}
+.specialist-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 2px; background: var(--gold); transform: scaleX(0);
+  transform-origin: left; transition: transform 0.3s;
+}
+.specialist-card:hover::before { transform: scaleX(1); }
+.specialist-card:hover { border-color: rgba(201,168,76,0.3); }
+
+.specialist-photo {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: var(--navy-mid); border: 2px solid rgba(201,168,76,0.3);
+  margin-bottom: 1.5rem; overflow: hidden; display: flex; align-items: center; justify-content: center;
+}
+.specialist-photo svg { width: 36px; height: 36px; opacity: 0.25; }
+
+.specialist-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem; color: var(--gold); letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+.specialist-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 600; color: var(--white);
+  margin-bottom: 0.3rem; line-height: 1.2;
+}
+.specialist-nick {
+  font-size: 0.7rem; color: var(--gold); letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 0.8rem; font-style: italic;
+}
+.specialist-spec {
+  font-size: 0.78rem; color: var(--slate); line-height: 1.6;
+}
+.specialist-spec strong { color: var(--white-dim); font-weight: 400; }
+
+/* ─── SERVICES ─── */
+#servicios { position: relative; }
+
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
+
+.service-card {
+  padding: 2.5rem;
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 2px;
+  transition: all 0.3s; background: rgba(17,32,64,0.4);
+}
+.service-card:hover { border-color: rgba(201,168,76,0.4); background: rgba(17,32,64,0.8); transform: translateY(-4px); }
+
+.service-icon {
+  font-size: 2rem; margin-bottom: 1.5rem;
+}
+.service-illustration {
+  margin-bottom: 1.5rem;
+  opacity: 0.9;
+}
+.service-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; font-weight: 400; color: var(--white);
+  margin-bottom: 0.8rem;
+}
+.service-desc { font-size: 0.82rem; color: var(--slate); line-height: 1.8; }
+
+.service-procedures {
+  margin-top: 1.2rem; padding-top: 1.2rem;
+  border-top: 1px solid rgba(245,242,236,0.08);
+  list-style: none;
+}
+.service-procedures li {
+  font-size: 0.75rem; color: var(--slate);
+  padding: 0.3rem 0; display: flex; align-items: center; gap: 0.5rem;
+}
+.service-procedures li::before { content: '—'; color: var(--gold); font-size: 0.6rem; }
+
+/* ─── WHY ─── */
+#nosotros { background: var(--navy-mid); }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; margin-top: 4rem; }
+
+.why-features { display: flex; flex-direction: column; gap: 2rem; }
+.why-feature { display: flex; gap: 1.5rem; align-items: flex-start; }
+.why-feature-icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  border: 1px solid rgba(201,168,76,0.3); border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.why-feature-title { font-size: 0.9rem; font-weight: 500; color: var(--white); margin-bottom: 0.4rem; }
+.why-feature-desc { font-size: 0.8rem; color: var(--slate); line-height: 1.7; }
+
+.why-visual {
+  background: var(--navy);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 3rem; border-radius: 2px; text-align: center;
+}
+.why-big-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem; font-weight: 300; color: var(--gold);
+  line-height: 1; margin-bottom: 0.5rem;
+}
+.why-big-label { font-size: 0.75rem; color: var(--slate); letter-spacing: 0.12em; text-transform: uppercase; }
+.why-divider { width: 40px; height: 1px; background: rgba(201,168,76,0.3); margin: 2rem auto; }
+
+/* ─── FAQ ─── */
+#faq { }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 4rem; }
+.faq-item {
+  padding: 2rem 0; border-bottom: 1px solid rgba(245,242,236,0.08);
+  padding-right: 4rem; cursor: pointer;
+}
+.faq-item:nth-child(odd) { border-right: 1px solid rgba(245,242,236,0.08); padding-right: 3rem; }
+.faq-item:nth-child(even) { padding-left: 3rem; padding-right: 0; }
+
+.faq-q {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; color: var(--white); font-weight: 400;
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+}
+.faq-q .faq-icon { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.3s; }
+.faq-a { font-size: 0.8rem; color: var(--slate); line-height: 1.8; margin-top: 0.8rem; display: none; }
+.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+/* ─── LOCATION ─── */
+#ubicacion { background: var(--navy-mid); }
+.location-card {
+  background: var(--navy); border: 1px solid rgba(201,168,76,0.2);
+  padding: 3rem; border-radius: 2px; max-width: 600px; margin: 3rem auto 0;
+  text-align: center;
+}
+.location-icon { font-size: 2rem; margin-bottom: 1rem; }
+.location-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; font-weight: 400; color: var(--white); margin-bottom: 0.5rem;
+}
+.location-address { font-size: 0.85rem; color: var(--slate); line-height: 1.7; margin-bottom: 1.5rem; }
+.location-phone { font-size: 1.2rem; color: var(--gold); font-family: 'Cormorant Garamond', serif; margin-bottom: 2rem; }
+.location-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ─── CTA ─── */
+#cta {
+  text-align: center; padding: 8rem 6vw;
+  background: linear-gradient(135deg, var(--navy-mid) 0%, var(--navy) 100%);
+  position: relative; overflow: hidden;
+}
+#cta::before {
+  content: 'AMC'; position: absolute;
+  font-family: 'Cormorant Garamond', serif; font-size: 20rem; font-weight: 600;
+  color: rgba(201,168,76,0.03); top: 50%; left: 50%;
+  transform: translate(-50%, -50%); pointer-events: none; white-space: nowrap;
+}
+.cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 4rem); font-weight: 300; color: var(--white);
+  margin-bottom: 1rem;
+}
+.cta-title em { font-style: italic; color: var(--gold); }
+.cta-sub { color: var(--slate); font-size: 0.9rem; margin-bottom: 3rem; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #060e1c; padding: 3rem 6vw;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+  border-top: 1px solid rgba(201,168,76,0.15);
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600;
+  color: var(--white);
+}
+.footer-logo span { color: var(--gold); }
+.footer-copy { font-size: 0.72rem; color: var(--slate); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a { font-size: 0.72rem; color: var(--slate); text-decoration: none; }
+.footer-links a:hover { color: var(--gold); }
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; min-height: auto; overflow: hidden; }
+  .hero-right { display: none; }
+  .hero-left { padding: 8rem 5vw 3rem; width: 100%; }
+  .hero-badge { font-size: 0.62rem; padding: 0.35rem 0.8rem; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+  .hero-subtitle { font-size: 0.88rem; max-width: 100%; }
+  .hero-actions { flex-direction: column; gap: 0.75rem; }
+  .hero-actions .btn-primary,
+  .hero-actions .btn-outline { width: 100%; text-align: center; }
+  .hero-stats { gap: 0; justify-content: space-between; }
+  .hero-stats > div { flex: 1; text-align: center; }
+  .stat-num { font-size: 1.8rem; }
+  .stat-label { font-size: 0.6rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .faq-item:nth-child(odd),
+  .faq-item:nth-child(even) { padding-left: 0; padding-right: 0; border-right: none; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  section { padding: 4rem 5vw; }
+  .specialists-grid { grid-template-columns: 1fr 1fr; }
+  .location-actions { flex-direction: column; }
+  .location-actions a { text-align: center; }
+}
+
+/* ─── VIDEO CAROUSEL ─── */
+#videos { background: var(--navy-mid); }
+.carousel-wrapper { position: relative; margin-top: 3rem; overflow: hidden; }
+.carousel-track {
+  display: flex; gap: 1.5rem;
+  transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  will-change: transform;
+}
+.video-card {
+  flex: 0 0 280px;
+  background: var(--navy);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 4px; overflow: hidden;
+}
+.video-card iframe {
+  width: 100%; aspect-ratio: 9/16;
+  border: none; display: block;
+}
+.carousel-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(201,168,76,0.9); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; z-index: 10; transition: background 0.2s;
+}
+.carousel-btn:hover { background: var(--gold-light); }
+.carousel-btn.prev { left: 0; }
+.carousel-btn.next { right: 0; }
+
+/* ─── SOCIAL ─── */
+#redes { text-align: center; }
+.social-grid {
+  display: flex; justify-content: center; gap: 2rem;
+  flex-wrap: wrap; margin-top: 3rem;
+}
+.social-card {
+  display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+  text-decoration: none; padding: 2rem 2.5rem;
+  border: 1px solid rgba(201,168,76,0.15); border-radius: 4px;
+  background: rgba(17,32,64,0.4); transition: all 0.3s; min-width: 140px;
+}
+.social-card:hover { border-color: rgba(201,168,76,0.5); transform: translateY(-4px); background: rgba(17,32,64,0.8); }
+.social-icon { font-size: 2rem; }
+.social-name { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); }
+.social-handle { font-size: 0.7rem; color: var(--gold); margin-top: -0.3rem; }
+.social-svg { width: 2.2rem; height: 2.2rem; color: var(--gold); }
+@media (max-width: 900px) {
+  .video-card { flex: 0 0 240px; }
+  .social-card { padding: 1.5rem; min-width: 110px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span>Arthro</span>Masters Center</a>
+  <ul class="nav-links">
+    <li><a href="#especialistas">Especialistas</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#ubicacion">Ubicación</a></li>
+    <li><a href="https://wa.me/525616031729" class="nav-cta">Agendar Cita</a></li>
+  </ul>
+  <div class="nav-hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-lines"></div>
+
+  <div class="hero-left">
+    <div class="hero-badge">Hospital Ángeles Metropolitano · CDMX</div>
+
+    <h1 class="hero-title">
+      Centro de<br>Excelencia en
+      <em>Ortopedia</em>
+    </h1>
+
+    <p class="hero-subtitle">
+      Cuatro especialistas de alto nivel reunidos en un solo centro. Artroscopia avanzada, prótesis articular y cirugía de columna con tecnología de vanguardia.
+    </p>
+
+    <div class="hero-actions">
+      <a href="https://wa.me/525616031729" class="btn-primary">Agendar Consulta</a>
+      <a href="#especialistas" class="btn-outline">Conoce al Equipo</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">4</div>
+        <div class="stat-label">Especialistas</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Subespecialidades</div>
+      </div>
+      <div>
+        <div class="stat-num">24/7</div>
+        <div class="stat-label">Urgencias</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-photo-grid">
+      <!-- Foto principal / grupal -->
+      <div class="photo-card">
+        <img src="colin2.jpeg" alt="ArthroMasters Center" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;">
+        <div class="photo-info">
+          <div class="doc-name">ArthroMasters Center</div>
+          <div class="doc-spec">Ángeles Metropolitano</div>
+        </div>
+      </div>
+      <!-- Dr. Maqueda -->
+      <div class="photo-card">
+        <img src="makeda2.jpeg" alt="Dr. Maqueda" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;">
+        <div class="photo-info">
+          <div class="doc-name">Dr. Maqueda</div>
+          <div class="doc-spec">Artroscopia</div>
+        </div>
+      </div>
+      <!-- Dr. Del Moral -->
+      <div class="photo-card">
+        <img src="delmoral1.jpeg" alt="Dr. Del Moral" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;">
+        <div class="photo-info">
+          <div class="doc-name">Dr. Del Moral</div>
+          <div class="doc-spec">Artroscopia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALISTAS -->
+<section id="especialistas">
+  <div class="specialists-header">
+    <div>
+      <div class="section-tag">Nuestro Equipo</div>
+      <h2 class="section-title">Especialistas de <em>Alto Nivel</em></h2>
+    </div>
+    <p class="section-desc">Cuatro cirujanos con subespecialidades complementarias, formados en las mejores instituciones del país.</p>
+  </div>
+
+  <div class="specialists-grid">
+    <!-- Maqueda -->
+    <div class="specialist-card">
+      <div class="specialist-photo">
+        <img src="makeda1.jpeg" alt="Dr. Maqueda" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      </div>
+      <div class="specialist-num">01</div>
+      <div class="specialist-name">Dr. Luis Maqueda<br>Quintanilla</div>
+      <div class="specialist-nick">✦ Cirujano de Campeones</div>
+      <div class="specialist-spec">
+        <strong>Especialidad:</strong> Cirugía Artroscópica avanzada de rodilla y hombro. Alta experiencia en atletas de alto rendimiento y lesiones deportivas complejas.
+      </div>
+    </div>
+
+    <!-- Del Moral -->
+    <div class="specialist-card">
+      <div class="specialist-photo">
+        <img src="delmoral2.png" alt="Dr. Del Moral" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      </div>
+      <div class="specialist-num">02</div>
+      <div class="specialist-name">Dr. Sergio Del Moral<br>Carachure</div>
+      <div class="specialist-nick">✦ Artroscopia & Pie</div>
+      <div class="specialist-spec">
+        <strong>Especialidad:</strong> Artroscopia de rodilla, hombro y cirugía de pie y tobillo. Corrección de Hallux Valgus con técnicas de mínima invasión.<br><a href="https://ortopediadelmoral.com.mx" target="_blank" style="color:var(--gold);font-size:0.72rem;text-decoration:none;margin-top:0.5rem;display:inline-block;">🌐 ortopediadelmoral.com.mx</a>
+      </div>
+    </div>
+
+    <!-- Avelino -->
+    <div class="specialist-card">
+      <div class="specialist-photo">
+        <img src="colin1.jpeg" alt="Dr. Colin" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      </div>
+      <div class="specialist-num">03</div>
+      <div class="specialist-name">Dr. Avelino<br>Colin Vázquez</div>
+      <div class="specialist-nick">✦ Cirugía de Prótesis</div>
+      <div class="specialist-spec">
+        <strong>Especialidad:</strong> Subespecialista en Reemplazos Articulares. Prótesis de cadera y rodilla de última generación. +8 años de experiencia · +4,000 cirugías realizadas · Publicaciones científicas internacionales.<br>
+        <a href="https://www.drcolinortopediaytraumatologia.com/" target="_blank" style="color:var(--gold);font-size:0.72rem;text-decoration:none;margin-top:0.5rem;display:inline-block;">🌐 drcolinortopediaytraumatologia.com</a>
+      </div>
+    </div>
+
+    <!-- Salazar -->
+    <div class="specialist-card">
+      <div class="specialist-photo">
+        <img src="salazar1.jpeg" alt="Dr. Salazar" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+      </div>
+      <div class="specialist-num">04</div>
+      <div class="specialist-name">Dr. Francisco<br>Salazar García</div>
+      <div class="specialist-nick">✦ Cirugía de Columna</div>
+      <div class="specialist-spec">
+        <strong>Especialidad:</strong> Patología de columna vertebral cervical, torácica y lumbar. Cirugía mínimamente invasiva y manejo de hernias discales.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="section-tag">Lo que tratamos</div>
+  <h2 class="section-title">Nuestros <em>Servicios</em></h2>
+  <p class="section-desc">Cobertura completa de la patología ortopédica con las técnicas quirúrgicas más avanzadas disponibles en México.</p>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-illustration">
+        <img src="artroscopia.png" alt="Artroscopia" style="width:110px;height:110px;object-fit:contain;">
+      </div>
+      <div class="service-name">Artroscopia</div>
+      <div class="service-desc">Cirugía mínimamente invasiva de articulaciones con recuperación acelerada y mínimo dolor postoperatorio.</div>
+      <ul class="service-procedures">
+        <li>Manguito rotador</li>
+        <li>Ligamento cruzado anterior</li>
+        <li>Meniscos</li>
+        <li>Inestabilidad de hombro</li>
+        <li>Artroscopia de tobillo</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-illustration">
+        <img src="protesis.png" alt="Prótesis Articular" style="width:110px;height:110px;object-fit:contain;">
+      </div>
+      <div class="service-name">Prótesis Articular</div>
+      <div class="service-desc">Reemplazo articular total y parcial con implantes de última generación para recuperar tu calidad de vida.</div>
+      <ul class="service-procedures">
+        <li>Prótesis total de rodilla</li>
+        <li>Prótesis total de cadera</li>
+        <li>Prótesis de hombro</li>
+        <li>Revisión de prótesis</li>
+      </ul>
+    </div>
+
+    <div class="service-card">
+      <div class="service-illustration">
+        <img src="columna.png" alt="Cirugía de Columna" style="width:110px;height:110px;object-fit:contain;">
+      </div>
+      <div class="service-name">Cirugía de Columna</div>
+      <div class="service-desc">Tratamiento integral de patologías de columna cervical, torácica y lumbar con enfoque mínimamente invasivo.</div>
+      <ul class="service-procedures">
+        <li>Hernia de disco</li>
+        <li>Estenosis de canal</li>
+        <li>Escoliosis</li>
+        <li>Fracturas vertebrales</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ NOSOTROS -->
+<section id="nosotros">
+  <div class="section-tag">Por qué elegirnos</div>
+  <h2 class="section-title">Un Centro, <em>Cuatro Expertos</em></h2>
+
+  <div class="why-grid">
+    <div class="why-features">
+      <div class="why-feature">
+        <div class="why-feature-icon">🏆</div>
+        <div>
+          <div class="why-feature-title">Subespecialistas certificados</div>
+          <div class="why-feature-desc">Cada doctor tiene formación de posgrado específica en su área. No generalistas — cirujanos enfocados en lo que mejor hacen.</div>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon">🔄</div>
+        <div>
+          <div class="why-feature-title">Atención integral en un solo lugar</div>
+          <div class="why-feature-desc">Desde una lesión deportiva hasta un reemplazo de cadera o una cirugía de columna — todo bajo el mismo techo en Ángeles Metropolitano.</div>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon">🏥</div>
+        <div>
+          <div class="why-feature-title">Hospital de primer nivel</div>
+          <div class="why-feature-desc">Operamos en el Hospital Ángeles Metropolitano, con tecnología de imagen avanzada, quirófanos modernos y UCI.</div>
+        </div>
+      </div>
+      <div class="why-feature">
+        <div class="why-feature-icon">💳</div>
+        <div>
+          <div class="why-feature-title">Seguros médicos mayores</div>
+          <div class="why-feature-desc">Trabajamos con GNP, AXA, MetLife, Seguros Monterrey, Atlas y otras aseguradoras líderes.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-visual">
+      <div class="why-big-num">100%</div>
+      <div class="why-big-label">Subespecialistas certificados</div>
+      <div class="why-divider"></div>
+      <div class="why-big-num">4</div>
+      <div class="why-big-label">Doctores en un solo centro</div>
+      <div class="why-divider"></div>
+      <div class="why-big-num">3</div>
+      <div class="why-big-label">Áreas de subespecialidad</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-tag">Preguntas frecuentes</div>
+  <h2 class="section-title">Resolvemos tus <em>Dudas</em></h2>
+
+  <div class="faq-grid">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Cómo sé qué especialista necesito? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Puedes contactarnos por WhatsApp describiéndonos tu problema. Nuestro equipo te orientará al especialista indicado — artroscopia, prótesis o columna — sin costo de orientación.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Atienden urgencias de fracturas? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Sí. Contamos con cobertura para urgencias traumatológicas en Hospital Ángeles Metropolitano. Diagnóstico inmediato con rayos X y tomografía disponibles las 24 horas.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Cuánto dura la recuperación de una artroscopia? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Depende de la articulación y el procedimiento. Una artroscopia de menisco tiene retorno a actividad en 4–6 semanas. Una reconstrucción de ligamento cruzado anterior requiere 6–9 meses de rehabilitación progresiva.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Qué seguros médicos aceptan? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Trabajamos con las principales aseguradoras: GNP, AXA, MetLife, Seguros Monterrey, Atlas y otras. Para cirugías programadas manejamos pago directo. Contáctanos y verificamos tu cobertura.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿Cuándo es necesaria una prótesis de rodilla o cadera? <span class="faq-icon">+</span></div>
+      <div class="faq-a">Cuando el desgaste articular afecta la calidad de vida diaria y ya no responde a tratamiento conservador. El Dr. Avelino Colin evalúa cada caso y determina si existe alternativa antes de recomendar el reemplazo.</div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">¿La cirugía de columna siempre requiere hospitalización? <span class="faq-icon">+</span></div>
+      <div class="faq-a">No necesariamente. Muchos procedimientos de columna mínimamente invasivos son ambulatorios o requieren solo una noche de hospitalización. El Dr. Salazar evalúa cada caso para planear el abordaje menos invasivo posible.</div>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section id="ubicacion" style="text-align:center;">
+  <div class="section-tag">Encuéntranos</div>
+  <h2 class="section-title">Nuestra <em>Sede</em></h2>
+  <p class="section-desc" style="margin: 0 auto;">Estamos en uno de los hospitales de mayor nivel en la Ciudad de México, con acceso fácil desde Roma, Condesa, Narvarte y Del Valle.</p>
+
+  <div class="location-card">
+    <div class="location-icon">🏨</div>
+    <div class="location-name">Hospital Ángeles Metropolitano</div>
+    <div class="location-address">Tlacotalpan 59, Torre Diamante<br>Roma Sur, Cuauhtémoc, CDMX</div>
+    <div class="location-phone">📱 56 1603 1729</div>
+    <div class="location-actions">
+      <a href="https://wa.me/525616031729" class="btn-primary">WhatsApp</a>
+      <a href="https://maps.google.com/?q=Hospital+Angeles+Metropolitano+Tlacotalpan+59+Roma+Sur+CDMX" target="_blank" class="btn-outline">Ver en Mapa</a>
+    </div>
+  </div>
+  <div class="map-embed">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.4!2d-99.1676!3d19.4098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff4b3c0a4e3f%3A0x5a7e3e3a3a3a3a3a!2sHospital%20%C3%81ngeles%20Metropolitano!5e0!3m2!1ses!2smx!4v1"
+      width="100%" height="320" style="border:0;border-radius:4px;margin-top:2rem;filter:grayscale(30%) invert(5%);" allowfullscreen loading="lazy">
+    </iframe>
+  </div>
+</section>
+
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="section-tag">Contenido Educativo</div>
+  <h2 class="section-title">Videos <em>Destacados</em></h2>
+  <p class="section-desc">Aprende sobre procedimientos y lesiones comunes de la mano de nuestros especialistas.</p>
+
+  <div class="carousel-wrapper">
+    <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+    <div class="carousel-track" id="carouselTrack">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/mqYZSJcg7to" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/551rCTOwZ88" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/9r37Q9Wlbb0" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/ozif3a81Zqo" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
+  </div>
+</section>
+
+<!-- REDES SOCIALES -->
+<section id="redes">
+  <div class="section-tag">Síguenos</div>
+  <h2 class="section-title">Redes <em>Sociales</em></h2>
+  <p class="section-desc" style="margin: 0 auto;">Contenido educativo, casos clínicos y novedades del grupo.</p>
+  <div class="social-grid">
+    <a href="https://www.instagram.com/ortopedista_drmakeda?igsh=MThmbnR5NXpqa21sbA==" target="_blank" class="social-card">
+      <svg class="social-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+      </svg>
+      <span class="social-name">Instagram</span>
+      <span class="social-handle">@ortopedista_drmakeda</span>
+    </a>
+    <a href="https://www.youtube.com/@ortopediadelmoral" target="_blank" class="social-card">
+      <svg class="social-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/>
+        <polygon points="10,8.5 10,15.5 16,12" fill="currentColor"/>
+      </svg>
+      <span class="social-name">YouTube</span>
+      <span class="social-handle">@ortopediadelmoral</span>
+    </a>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-tag">¿Listo para tu consulta?</div>
+  <h2 class="cta-title">Tu recuperación<br>empieza con un <em>mensaje</em></h2>
+  <p class="cta-sub">Respuesta en menos de 24 horas · Sin compromisos</p>
+  <a href="https://wa.me/525616031729" class="btn-primary" style="font-size:0.9rem; padding: 1rem 2.5rem;">
+    Agendar Consulta por WhatsApp
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span>Arthro</span>Masters Center</div>
+  <div class="footer-copy">© 2025 ArthroMasters Center · Hospital Ángeles Metropolitano · CDMX</div>
+  <div class="footer-links">
+    <a href="#especialistas">Especialistas</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#ubicacion">Contacto</a>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el) {
+  el.classList.toggle('open');
+}
+
+// Smooth nav
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Entrance animations
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.specialist-card, .service-card, .why-feature, .faq-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+
+// Carousel
+let carouselIndex = 0;
+function moveCarousel(dir) {
+  const track = document.getElementById('carouselTrack');
+  const cards = track.querySelectorAll('.video-card');
+  const cardW = cards[0].offsetWidth + 24;
+  carouselIndex = Math.max(0, Math.min(carouselIndex + dir, cards.length - 1));
+  track.style.transform = `translateX(-${carouselIndex * cardW}px)`;
+}
+</script>
+
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/525616031729" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.528 5.855L.057 23.203a.75.75 0 0 0 .922.911l5.47-1.437A11.942 11.942 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.7-.513-5.254-1.407l-.376-.22-3.894 1.023.992-3.793-.242-.389A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
+
+<style>
+.whatsapp-float {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 999;
+  width: 58px; height: 58px; border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.7);
+}
+</style>
+</body>
+</html>
