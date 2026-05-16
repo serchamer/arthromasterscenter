@@ -36,18 +36,24 @@ body {
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1.2rem 4vw;
-  background: rgba(10,22,40,0.92);
+  padding: 0.7rem 4vw;
+  background: rgba(10,22,40,0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(201,168,76,0.2);
 }
 
+/* CAMBIO 1: Logo imagen en el nav */
 .nav-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.4rem; font-weight: 600; letter-spacing: 0.04em;
-  color: var(--white); text-decoration: none;
+  display: flex; align-items: center; text-decoration: none;
 }
-.nav-logo span { color: var(--gold); }
+.nav-logo img {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  /* El logo tiene fondo negro, lo hacemos transparente con mix-blend-mode */
+  mix-blend-mode: screen;
+  filter: brightness(1.1);
+}
 
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
@@ -72,12 +78,14 @@ nav {
   min-height: 100vh;
   display: grid; grid-template-columns: 1fr 1fr;
   position: relative; overflow: hidden;
-  background: url('fonde_de_agua.png') center center / cover no-repeat;
+  /* CAMBIO 2: fondo con logo arthrom */
+  background: url('arthrom.jpeg') center center / cover no-repeat;
 }
 
 .hero-bg {
   position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(10,22,40,0.92) 0%, rgba(10,22,40,0.75) 50%, rgba(10,22,40,0.5) 100%);
+  /* Overlay más oscuro para que el logo de fondo se vea sutil */
+  background: linear-gradient(to right, rgba(10,22,40,0.93) 0%, rgba(10,22,40,0.80) 50%, rgba(10,22,40,0.60) 100%);
   pointer-events: none;
 }
 
@@ -156,10 +164,26 @@ nav {
 }
 .stat-label { font-size: 0.72rem; color: var(--slate); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.3rem; }
 
+/* ─── HERO RIGHT ─── */
 .hero-right {
   position: relative; z-index: 2;
   display: flex; align-items: center; justify-content: center;
   padding: 8rem 4vw 4rem;
+  flex-direction: column; gap: 1.5rem;
+}
+
+/* CAMBIO 3: Logo grande visible en el hero right */
+.hero-logo-display {
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem;
+}
+.hero-logo-display img {
+  width: 260px;
+  max-width: 90%;
+  object-fit: contain;
+  /* El fondo negro del logo se vuelve transparente */
+  mix-blend-mode: screen;
+  filter: brightness(1.15) drop-shadow(0 0 30px rgba(201,168,76,0.4));
 }
 
 .hero-photo-grid {
@@ -167,7 +191,7 @@ nav {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 12px;
-  width: 100%; max-width: 420px;
+  width: 100%; max-width: 380px;
 }
 
 .photo-card {
@@ -386,15 +410,18 @@ section { padding: 6rem 6vw; }
 
 /* ─── FOOTER ─── */
 footer {
-  background: #060e1c; padding: 3rem 6vw;
+  background: #060e1c; padding: 2rem 6vw;
   display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
   border-top: 1px solid rgba(201,168,76,0.15);
 }
-.footer-logo {
-  font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600;
-  color: var(--white);
+/* CAMBIO FOOTER: logo imagen */
+.footer-logo img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: brightness(1.05);
 }
-.footer-logo span { color: var(--gold); }
 .footer-copy { font-size: 0.72rem; color: var(--slate); }
 .footer-links { display: flex; gap: 1.5rem; }
 .footer-links a { font-size: 0.72rem; color: var(--slate); text-decoration: none; }
@@ -403,7 +430,9 @@ footer {
 /* ─── MOBILE ─── */
 @media (max-width: 900px) {
   #hero { grid-template-columns: 1fr; min-height: auto; overflow: hidden; }
-  .hero-right { display: none; }
+  .hero-right { padding: 2rem 5vw 3rem; }
+  .hero-logo-display img { width: 180px; }
+  .hero-photo-grid { max-width: 100%; }
   .hero-left { padding: 8rem 5vw 3rem; width: 100%; }
   .hero-badge { font-size: 0.62rem; padding: 0.35rem 0.8rem; max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
   .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
@@ -484,7 +513,10 @@ footer {
 
 <!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#"><span>Arthro</span>Masters Center</a>
+  <!-- CAMBIO 1: Logo imagen en nav -->
+  <a class="nav-logo" href="#">
+    <img src="arthrom.jpeg" alt="ArthroMasters Center">
+  </a>
   <ul class="nav-links">
     <li><a href="#especialistas">Especialistas</a></li>
     <li><a href="#servicios">Servicios</a></li>
@@ -499,6 +531,7 @@ footer {
 </nav>
 
 <!-- HERO -->
+<!-- CAMBIO 2: background: url('arthrom.jpeg') aplicado via CSS arriba -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
@@ -536,7 +569,11 @@ footer {
     </div>
   </div>
 
+  <!-- CAMBIO 3: Logo grande + fotos en hero right -->
   <div class="hero-right">
+    <div class="hero-logo-display">
+      <img src="arthrom.jpeg" alt="ArthroMasters Center Logo">
+    </div>
     <div class="hero-photo-grid">
       <!-- Foto principal / grupal -->
       <div class="photo-card">
@@ -796,7 +833,6 @@ footer {
   </div>
 </section>
 
-
 <!-- VIDEOS -->
 <section id="videos">
   <div class="section-tag">Contenido Educativo</div>
@@ -861,7 +897,10 @@ footer {
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><span>Arthro</span>Masters Center</div>
+  <!-- CAMBIO FOOTER: logo imagen -->
+  <div class="footer-logo">
+    <img src="arthrom.jpeg" alt="ArthroMasters Center">
+  </div>
   <div class="footer-copy">© 2025 ArthroMasters Center · Hospital Ángeles Metropolitano · CDMX</div>
   <div class="footer-links">
     <a href="#especialistas">Especialistas</a>
